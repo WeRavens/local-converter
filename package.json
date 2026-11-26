@@ -1,0 +1,43 @@
+{
+  "name": "lokalconvert",
+  "version": "1.0.0",
+  "description": "Privacy-first 100% client-side image, HEIC, PDF, audio, and video converter PWA with smart target file size optimization.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "npm run sync:assets",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "test": "vitest",
+    "postinstall": "npm run sync:assets",
+    "sync:assets": "node -e \"const fs=require('fs');fs.mkdirSync('public/ffmpeg',{recursive:true});fs.copyFileSync('node_modules/@ffmpeg/core/dist/esm/ffmpeg-core.js','public/ffmpeg/ffmpeg-core.js');fs.copyFileSync('node_modules/@ffmpeg/core/dist/esm/ffmpeg-core.wasm','public/ffmpeg/ffmpeg-core.wasm');fs.mkdirSync('public/pdf',{recursive:true});fs.copyFileSync('node_modules/pdfjs-dist/build/pdf.worker.min.mjs','public/pdf/pdf.worker.min.mjs');fs.mkdirSync('public/avif',{recursive:true});fs.copyFileSync('node_modules/@jsquash/avif/codec/enc/avif_enc.wasm','public/avif/avif_enc.wasm');\""
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.12.10",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@jsquash/avif": "^2.1.1",
+    "heic2any": "^0.0.4",
+    "jszip": "^3.10.2",
+    "lucide-react": "^1.80.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^5.6.205",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@testing-library/jest-dom": "^8.0.0",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "^19.3.3",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^31.0.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.1.2"
+  }
+}

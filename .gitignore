@@ -1,0 +1,17 @@
+# Dependencies & build output
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+
+# Generated local engine binaries (auto-synced via npm run sync:assets)
+public/ffmpeg/
+public/pdf/
+public/avif/
+
+# Environment & platform artifacts
+.env
+.env.*
+.vercel/
+.DS_Store
+Thumbs.db
